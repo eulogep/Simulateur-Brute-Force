@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Euloge Mabiala">
+    <title>Simulateur d'Attaque Brute Force - Outil Éducatif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 min-h-screen">
+    <!-- Header -->
+    <header class="bg-black/20 backdrop-blur-sm border-b border-white/10">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-shield-alt text-3xl text-blue-400"></i>
+                    <h1 class="text-2xl font-bold text-white">Simulateur Brute Force</h1>
+                </div>
+                <div class="text-sm text-gray-300">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Outil éducatif uniquement
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Warning Banner -->
+        <div class="bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-4 mb-8">
+            <div class="flex items-center">
+                <i class="fas fa-exclamation-triangle text-yellow-400 mr-3"></i>
+                <div>
+                    <h3 class="font-semibold text-yellow-200">⚠️ Attention</h3>
+                    <p class="text-yellow-100 text-sm">Cet outil est conçu à des fins éducatives uniquement. Il permet d'évaluer la robustesse de vos mots de passe et de comprendre les risques des attaques par force brute.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Information Simulation Section -->
+        <div class="bg-red-500/20 border border-red-500/50 rounded-lg p-6 mb-8">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-user-secret text-red-400 mr-3 text-2xl"></i>
+                <div>
+                    <h3 class="font-semibold text-red-200 text-xl">🔒 Simulation de Vulnérabilité des Données Personnelles</h3>
+                    <p class="text-red-100 text-sm">Démonstration éducative des risques liés à l'exposition d'informations personnelles</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Email Input -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <h4 class="text-white font-medium mb-3">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Email PlayStation
+                    </h4>
+                    <div class="space-y-3">
+                        <input 
+                            type="email" 
+                            id="playstationEmail" 
+                            placeholder="exemple@email.com"
+                            class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+                        >
+                        <button 
+                            id="simulateDataBreach" 
+                            class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded transition-colors"
+                        >
+                            <i class="fas fa-search mr-2"></i>
+                            Simuler la récupération de données
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Display -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <h4 class="text-white font-medium mb-3">
+                        <i class="fas fa-database mr-2"></i>
+                        Données récupérées (simulation)
+                    </h4>
+                    <div id="dataBreachResults" class="space-y-2">
+                        <div class="text-gray-300 text-sm">
+                            <i class="fas fa-info-circle mr-2 text-blue-400"></i>
+                            Entrez un email pour voir la simulation
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educational Warning -->
+            <div class="mt-4 p-3 bg-black/30 rounded-lg border border-red-500/30">
+                <div class="flex items-start">
+                    <i class="fas fa-shield-alt text-red-400 mr-2 mt-1"></i>
+                    <div class="text-sm">
+                        <p class="text-red-200 font-medium mb-1">⚠️ Avertissement Éducatif</p>
+                        <p class="text-red-100">Cette simulation démontre comment les informations personnelles peuvent être exposées lors de fuites de données. Utilisez ces connaissances pour protéger vos comptes et sensibiliser à la cybersécurité.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Password Input Section -->
+            <div class="space-y-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                    <h2 class="text-xl font-semibold text-white mb-4">
+                        <i class="fas fa-key mr-2"></i>
+                        Saisie du mot de passe
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div class="relative">
+                            <input 
+                                type="password" 
+                                id="passwordInput" 
+                                placeholder="Entrez votre mot de passe..."
+                                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                            >
+                            <button 
+                                id="togglePassword" 
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-white"
+                            >
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <input type="checkbox" id="realTimeAnalysis" class="rounded" checked>
+                            <label for="realTimeAnalysis" class="text-gray-200 text-sm">Analyse en temps réel</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password Strength Indicator -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                    <h3 class="text-lg font-semibold text-white mb-4">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Force du mot de passe
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Robustesse</span>
+                            <span id="strengthScore" class="text-2xl font-bold text-white">0%</span>
+                        </div>
+                        
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div id="strengthBar" class="h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                        
+                        <div id="strengthLabel" class="text-center font-semibold text-sm">Très faible</div>
+                    </div>
+                </div>
+
+                <!-- Security Tips -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                    <h3 class="text-lg font-semibold text-white mb-4">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        Conseils de sécurité
+                    </h3>
+                    
+                    <div id="securityTips" class="space-y-3">
+                        <div class="text-gray-300 text-sm">
+                            <i class="fas fa-info-circle mr-2 text-blue-400"></i>
+                            Saisissez un mot de passe pour recevoir des conseils personnalisés
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attack Simulation Section -->
+            <div class="space-y-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                    <h2 class="text-xl font-semibold text-white mb-4">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Simulation d'attaques
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <!-- Basic Attack -->
+                        <div class="bg-red-500/20 border border-red-500/30 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-desktop text-red-400 mr-2"></i>
+                                    <span class="text-white font-medium">Attaque basique</span>
+                                </div>
+                                <span class="text-xs text-gray-300">1000 essais/sec</span>
+                            </div>
+                            <div id="basicAttackTime" class="text-2xl font-bold text-red-300">-</div>
+                        </div>
+
+                        <!-- GPU Attack -->
+                        <div class="bg-orange-500/20 border border-orange-500/30 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-microchip text-orange-400 mr-2"></i>
+                                    <span class="text-white font-medium">Attaque GPU</span>
+                                </div>
+                                <span class="text-xs text-gray-300">10M essais/sec</span>
+                            </div>
+                            <div id="gpuAttackTime" class="text-2xl font-bold text-orange-300">-</div>
+                        </div>
+
+                        <!-- Cluster Attack -->
+                        <div class="bg-purple-500/20 border border-purple-500/30 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-server text-purple-400 mr-2"></i>
+                                    <span class="text-white font-medium">Attaque Cluster</span>
+                                </div>
+                                <span class="text-xs text-gray-300">1B essais/sec</span>
+                            </div>
+                            <div id="clusterAttackTime" class="text-2xl font-bold text-purple-300">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Chart -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 statistics-card">
+                    <h3 class="text-lg font-semibold text-white mb-4">
+                        <i class="fas fa-chart-bar mr-2"></i>
+                        Statistiques d'Attaque
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Métriques principales -->
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="text-center p-3 bg-blue-500/20 rounded-lg border border-blue-500/30 metric-card">
+                                <div id="charCount" class="text-xl font-bold text-blue-300 metric-value">0</div>
+                                <div class="text-xs text-gray-300">Caractères</div>
+                            </div>
+                            <div class="text-center p-3 bg-green-500/20 rounded-lg border border-green-500/30 metric-card">
+                                <div id="combinations" class="text-xl font-bold text-green-300 metric-value">0</div>
+                                <div class="text-xs text-gray-300">Combinaisons</div>
+                            </div>
+                            <div class="text-center p-3 bg-purple-500/20 rounded-lg border border-purple-500/30 metric-card">
+                                <div id="strengthScore" class="text-xl font-bold text-purple-300 metric-value">0%</div>
+                                <div class="text-xs text-gray-300">Force</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Graphique d'attaque -->
+                        <div class="mt-4 chart-container">
+                            <div class="text-sm text-gray-300 mb-2 text-center">
+                                <i class="fas fa-clock mr-1"></i>
+                                Temps d'attaque estimé (échelle logarithmique)
+                            </div>
+                            <div class="relative" style="height: 200px;">
+                                <canvas id="attackChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password Analysis -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                    <h3 class="text-lg font-semibold text-white mb-4">
+                        <i class="fas fa-search mr-2"></i>
+                        Analyse détaillée
+                    </h3>
+                    
+                    <div id="passwordAnalysis" class="space-y-3">
+                        <div class="text-gray-300 text-sm">
+                            <i class="fas fa-info-circle mr-2 text-blue-400"></i>
+                            Saisissez un mot de passe pour voir l'analyse détaillée
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Stats -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 statistics-card">
+                    <h3 class="text-lg font-semibold text-white mb-4">
+                        <i class="fas fa-tachometer-alt mr-2"></i>
+                        Performance Système
+                    </h3>
+                    
+                    <div id="performanceStats" class="space-y-4">
+                        <!-- Statuts des services -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="text-center p-3 bg-blue-500/20 rounded-lg border border-blue-500/30 performance-metric">
+                                <div id="cacheSize" class="text-lg font-bold text-blue-300 metric-value">0</div>
+                                <div class="text-xs text-gray-300">Analyses en cache</div>
+                            </div>
+                            <div class="text-center p-3 bg-green-500/20 rounded-lg border border-green-500/30 performance-metric">
+                                <div id="workerStatus" class="text-lg font-bold text-green-300 metric-value">✓</div>
+                                <div class="text-xs text-gray-300">Web Worker</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Statuts API -->
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-2 bg-gray-800/30 rounded-lg api-status available">
+                                <span class="text-gray-300 text-sm">
+                                    <i class="fas fa-shield-alt mr-2 text-blue-400"></i>
+                                    API HIBP
+                                </span>
+                                <span id="hibpStatus" class="text-green-400 text-sm font-medium">✓ Disponible</span>
+                            </div>
+                            <div class="flex items-center justify-between p-2 bg-gray-800/30 rounded-lg api-status available">
+                                <span class="text-gray-300 text-sm">
+                                    <i class="fas fa-database mr-2 text-purple-400"></i>
+                                    Cache HIBP
+                                </span>
+                                <span id="hibpCacheSize" class="text-blue-400 text-sm font-medium">0 entrées</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 backdrop-blur-sm border-t border-white/10 mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <div class="text-center text-gray-400 text-sm">
+                <p>© 2024 Simulateur Brute Force - Outil éducatif pour la sensibilisation à la cybersécurité</p>
+                <p class="mt-2">
+                    <i class="fas fa-shield-alt mr-1"></i>
+                    Utilisez cet outil pour renforcer vos mots de passe, pas pour des activités malveillantes
+                </p>
+                <p class="mt-2">
+                    <i class="fas fa-user mr-1"></i>
+                    Créé par <span class="text-blue-400 font-medium">Euloge Mabiala</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="hibp-service.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
