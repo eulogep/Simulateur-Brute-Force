@@ -1,5 +1,5 @@
 // Service pour l'API Have I Been Pwned (HIBP)
-// Créé par : Euloge Mabiala
+// Créé par : MABIALA EULOGE JUNIOR
 
 class HIBPService {
     constructor() {

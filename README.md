@@ -2,7 +2,7 @@
 
 Un outil éducatif moderne et interactif pour analyser la robustesse des mots de passe en simulant différentes attaques par force brute.
 
-**Créé par : Euloge Mabiala**
+**Créé par : MABIALA EULOGE JUNIOR**
 
 ## 🎯 Objectif
 
@@ -42,6 +42,11 @@ Ce projet vise à sensibiliser les utilisateurs aux risques de sécurité liés 
 - **API Have I Been Pwned** : Vérification en temps réel des mots de passe compromis
 - **Animations visuelles** : Graphiques dynamiques et animations de progression d'attaque
 - **Statistiques de performance** : Monitoring en temps réel des optimisations
+
+### 📞 Section Contact
+- **Liens professionnels** : Accès direct à GitHub, LinkedIn et Outlook
+- **Design responsive** : Interface adaptée pour tous les appareils
+- **Animations interactives** : Effets de survol et transitions fluides
 
 ## 🛠️ Technologies Utilisées
 
@@ -208,8 +213,9 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 ## 📞 Support
 
 Pour toute question ou suggestion :
-- Ouvrez une issue sur GitHub
-- Contactez l'équipe de développement
+- **GitHub** : [https://github.com/eulogep/Simulateur-Brute-Force](https://github.com/eulogep/Simulateur-Brute-Force)
+- **LinkedIn** : [https://www.linkedin.com/in/euloge-junior-mabiala](https://www.linkedin.com/in/euloge-junior-mabiala)
+- **Email** : [mabiala@et.esiea.fr](mailto:mabiala@et.esiea.fr)
 
 ---
 

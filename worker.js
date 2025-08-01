@@ -1,5 +1,5 @@
 // Web Worker pour les calculs lourds d'analyse des mots de passe
-// Créé par : Euloge Mabiala
+// Créé par : MABIALA EULOGE JUNIOR
 
 self.onmessage = function(e) {
     const { type, data } = e.data;

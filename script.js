@@ -1,5 +1,5 @@
 // Simulateur d'Attaque Brute Force - Script Principal avec Optimisations
-// Créé par : Euloge Mabiala
+// Créé par : MABIALA EULOGE JUNIOR
 
 class BruteForceSimulator {
     constructor() {
