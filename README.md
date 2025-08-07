@@ -68,6 +68,16 @@ Ce projet vise à sensibiliser les utilisateurs aux risques de sécurité liés 
 
 ## 🚀 Installation et Utilisation
 
+### Déploiement avec GitHub Pages
+
+Le projet est automatiquement déployé sur GitHub Pages à chaque push sur la branche main. Vous pouvez accéder à la version en ligne à l'adresse : https://eulogep.github.io/Simulateur-Brute-Force/
+
+Pour déployer votre propre version :
+1. Forkez le repository
+2. Allez dans les paramètres de votre repository
+3. Dans la section "Pages", sélectionnez "GitHub Actions" comme source
+4. Le site sera automatiquement déployé à chaque push sur la branche main
+
 ### Prérequis
 - Navigateur web moderne (Chrome, Firefox, Safari, Edge)
 - Connexion internet (pour les CDN)
